@@ -1,0 +1,8 @@
+﻿  Building 'drv test' with toolset 'WindowsKernelModeDriver10.0' and the 'Desktop' target platform.
+  main.cpp
+  drv test.vcxproj -> C:\Users\86131\Desktop\oxygen pdb\oxygen pdb\drv test\bin\Debug\drvtest.sys
+  Done Adding Additional Store
+  Successfully signed: C:\Users\86131\Desktop\oxygen pdb\oxygen pdb\drv test\bin\Debug\drvtest.sys
+  
+  Inf2Cat task was skipped as there were no inf files to process
+  
