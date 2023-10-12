@@ -40,7 +40,7 @@
     <TargetVersion>Windows10</TargetVersion>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>WindowsKernelModeDriver10.0</PlatformToolset>
-    <ConfigurationType>Driver</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <DriverType>WDM</DriverType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'" Label="Configuration">
@@ -75,7 +75,7 @@
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
     <OutDir>$(ProjectDir)bin\$(ConfigurationName)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(ConfigurationName)\</IntDir>
-    <IncludePath>$(VC_IncludePath);$(IncludePath)</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(projectDir)include\;$(CRT_IncludePath);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <DebuggerFlavor>DbgengKernelDebugger</DebuggerFlavor>
