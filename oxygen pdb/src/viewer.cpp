@@ -79,7 +79,7 @@ namespace oxygenPdb{
 		auto pdbSize=ksocket::getContentLength(url.c_str(), "88");
 		if (pdbSize == 0) {
 			printk("failed to get content length!\r\n");
-			return nullptr;
+			return L"";
 		}
 
 		auto pdbBuf = kstd::make_unique<unsigned char[]>(pdbSize + 500);
@@ -87,14 +87,14 @@ namespace oxygenPdb{
 		if (!bSuc) {
 
 			printk("failed to get pdb file!\r\n");
-			return nullptr;
+			return L"";
 		}
 		ksocket::destory();
 
 		//then we write to disk
 		if (wRetPdbName != wPdbName) {
 			printk("failed to convert ansi to uni!\r\n");
-			return nullptr;
+			return L"";
 		}
 		helper::writeToDisk(L"C:\\Windows\\Temp\\", wRetPdbName,(char*)pdbBuf.get(), pdbSize);
 		
