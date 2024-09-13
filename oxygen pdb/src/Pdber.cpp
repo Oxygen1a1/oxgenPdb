@@ -26,7 +26,14 @@ namespace oxygenPdb {
 
 
 			//then download pdb or open pdb(pdb has exits
-			const auto& cpath = _pdbViewer.downLoadPdb(info).data();
+			const auto& pdb = _pdbViewer.downLoadPdb(info);
+			// Check pdb is empty instead of nullptr
+			if (pdb.empty()) {
+				printk("Failed to download pdb\r\n");
+				break;
+			}
+			
+			const auto& cpath = pdb.data();
 			if (cpath == 0) break;
 			wcscpy(_pdbPath, cpath);
 			strcpy(_pdbGuid, info.first.data());
@@ -43,7 +50,7 @@ namespace oxygenPdb {
 				break;
 			}
 
-			//symbol map ¾ÍÊÇÁ÷->·ûºÅµÄÓ³Éä
+			//symbol map Â¾ÃÃŠÃ‡ÃÃ·->Â·Ã»ÂºÃ…ÂµÃ„Ã“Â³Ã‰Ã¤
 			symbolic_access::SymbolsExtractor symbolsExtractor(msfReader);
 			_symbols = symbolsExtractor.Extract();
 			if (_symbols.empty())
